@@ -30,7 +30,7 @@ let mediaStream = null;
 let isActive = false;
 let apiKey = null;
 
-const GEMINI_MODEL = 'models/gemini-2.0-flash-exp';
+const GEMINI_MODEL = 'models/gemini-2.5-flash-native-audio-preview-12-2025';
 const VOICE = 'Puck';
 const SYSTEM_INSTRUCTION = `You are a friendly, warm, and creative AI assistant with the ability to generate images. 
 When a user asks you to draw, create, sketch, illustrate, paint, or generate any kind of image, picture, or illustration, 
