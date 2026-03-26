@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gemini Live — Voice & Image AI</title>
+  <meta name="description" content="Real-time voice conversation and image generation powered by Gemini Live API">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app" id="app">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+        </svg>
+        <span>Gemini Live</span>
+      </div>
+      <div class="status-pill" id="statusPill">
+        <span class="status-dot"></span>
+        <span class="status-text" id="statusText">Ready</span>
+      </div>
+    </header>
+
+    <!-- Main content area -->
+    <main class="main">
+
+      <!-- Orb visualization -->
+      <div class="orb-section" id="orbSection">
+        <div class="orb-wrapper" id="orbWrapper">
+          <div class="orb" id="orb">
+            <div class="orb-ring orb-ring-1"></div>
+            <div class="orb-ring orb-ring-2"></div>
+            <div class="orb-ring orb-ring-3"></div>
+            <div class="orb-core"></div>
+          </div>
+          <div class="orb-label" id="orbLabel">Tap to start</div>
+        </div>
+      </div>
+
+      <!-- Image display -->
+      <div class="image-panel" id="imagePanel">
+        <div class="image-card" id="imageCard">
+          <div class="image-loader" id="imageLoader">
+            <div class="loader-spinner"></div>
+            <span>Generating image...</span>
+          </div>
+          <img id="generatedImage" alt="Generated image">
+          <div class="image-caption" id="imageCaption"></div>
+        </div>
+      </div>
+
+      <!-- Transcript area -->
+      <div class="transcript-area" id="transcriptArea">
+        <div class="transcript-content" id="transcriptContent"></div>
+      </div>
+
+    </main>
+
+    <!-- Controls -->
+    <footer class="controls">
+      <button class="mic-btn" id="micBtn" aria-label="Toggle microphone">
+        <svg class="mic-icon" id="micIcon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+          <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+          <line x1="12" x2="12" y1="19" y2="22"/>
+        </svg>
+        <svg class="stop-icon hidden" id="stopIcon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <rect x="6" y="6" width="12" height="12" rx="2"/>
+        </svg>
+      </button>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
