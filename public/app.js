@@ -233,7 +233,7 @@ function sendToolResponse(callId, result) {
 
 // ---- Connect Directly to Gemini Live API ----
 function connectGemini() {
-  const wsUrl = `wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1beta.GenerativeService.BidiGenerateContent?key=${apiKey}`;
+  const wsUrl = `wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.GenerativeService.BidiGenerateContent?key=${apiKey}`;
   geminiWs = new WebSocket(wsUrl);
 
   geminiWs.onopen = () => {
@@ -259,9 +259,14 @@ function connectGemini() {
     }));
   };
 
-  geminiWs.onmessage = (e) => {
+  geminiWs.onmessage = async (e) => {
     try {
-      const msg = JSON.parse(e.data);
+      // Handle Blob data (binary messages from Gemini)
+      let raw = e.data;
+      if (raw instanceof Blob) {
+        raw = await raw.text();
+      }
+      const msg = JSON.parse(raw);
 
       // Setup complete
       if (msg.setupComplete) {
