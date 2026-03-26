@@ -3,7 +3,7 @@
 class CaptureProcessor extends AudioWorkletProcessor {
   constructor() {
     super();
-    this.bufferSize = 2048; // ~128ms at 16kHz — good chunk size
+    this.bufferSize = 480; // 30ms at 16kHz — low latency
     this.buffer = new Int16Array(this.bufferSize);
     this.writeIndex = 0;
   }

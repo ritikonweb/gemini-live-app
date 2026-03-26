@@ -254,7 +254,20 @@ function connectGemini() {
         systemInstruction: {
           parts: [{ text: SYSTEM_INSTRUCTION }]
         },
-        tools: [IMAGE_TOOL]
+        tools: [IMAGE_TOOL],
+        realtimeInputConfig: {
+          automaticActivityDetection: {
+            startOfSpeechSensitivity: 'START_OF_SPEECH_SENSITIVITY_HIGH',
+            endOfSpeechSensitivity: 'END_OF_SPEECH_SENSITIVITY_HIGH',
+            prefixPaddingMs: 20,
+            silenceDurationMs: 300,
+          }
+        },
+        inputAudioTranscription: {},
+        outputAudioTranscription: {},
+        thinkingConfig: {
+          includeThoughts: false,
+        }
       }
     }));
   };
